@@ -11,7 +11,7 @@ const Sidebar = () => {
         </p>
         <p className='py-3 border-t border-b'>
           <NavLink to='/dashboard' >
-            CHARTS & MAPS
+            COVID OVERVIEW
           </NavLink>
         </p>
       </nav>
