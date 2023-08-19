@@ -10,7 +10,7 @@ function App() {
   return (
     <Provider store={Store}>
       <div className="App">
-            <Router>
+            <Router basename={process.env.PUBLIC_URL}>
               <Routes>
                 <Route path='/' element={<Contact />}></Route>
                 <Route path='/dashboard' element={<Dashboard />}></Route>
