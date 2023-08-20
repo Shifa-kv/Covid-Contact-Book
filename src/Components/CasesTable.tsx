@@ -1,5 +1,4 @@
 const CasesTable = ({ data }: any) => {
-    console.log(data)
     return (
         <div>
             <div className="table-fixed w-full mt-3 mb-6">
