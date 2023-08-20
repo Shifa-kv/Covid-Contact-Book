@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Covid-Contact-Book/static/css/main.68e5535d.css",
-    "main.js": "/Covid-Contact-Book/static/js/main.45ced3c9.js",
+    "main.css": "/Covid-Contact-Book/static/css/main.8f1d8a72.css",
+    "main.js": "/Covid-Contact-Book/static/js/main.d63bd93b.js",
     "static/js/787.c45cc61a.chunk.js": "/Covid-Contact-Book/static/js/787.c45cc61a.chunk.js",
     "static/media/location.svg": "/Covid-Contact-Book/static/media/location.e124ecffa7853ff5de9438271eec1ab4.svg",
     "index.html": "/Covid-Contact-Book/index.html",
-    "main.68e5535d.css.map": "/Covid-Contact-Book/static/css/main.68e5535d.css.map",
-    "main.45ced3c9.js.map": "/Covid-Contact-Book/static/js/main.45ced3c9.js.map",
+    "main.8f1d8a72.css.map": "/Covid-Contact-Book/static/css/main.8f1d8a72.css.map",
+    "main.d63bd93b.js.map": "/Covid-Contact-Book/static/js/main.d63bd93b.js.map",
     "787.c45cc61a.chunk.js.map": "/Covid-Contact-Book/static/js/787.c45cc61a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.68e5535d.css",
-    "static/js/main.45ced3c9.js"
+    "static/css/main.8f1d8a72.css",
+    "static/js/main.d63bd93b.js"
   ]
 }
