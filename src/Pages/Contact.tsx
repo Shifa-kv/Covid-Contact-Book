@@ -62,12 +62,12 @@ const Contact = () => {
 
 
     return (
-        <section className="bg-[#282c34] min-h-[100vh] flex text-white container mx-auto ">
-            <div className='w-3/12'>
+        <section className="bg-[#282c34] min-h-[100vh] h-full md:flex text-white ">
+            <div className='md:w-3/12'>
                 <Sidebar />
             </div>
-            <div className='w-9/12 px-10 py-10'>
-                <div className=' flex flex-wrap	flex-row'>
+            <div className='md:w-9/12 px-10 py-10'>
+                <div className=' sm:flex flex-wrap	flex-row'>
                     <div className='w-full p-4 text-center'>
                         <div className='border border-sky-500 h-full p-5 rounded-lg shadow-lg '>
                             <button className='font-thin border border-dashed rounded-full w-[80px] h-[80px]' onClick={() => { showAddPopup(true) }}>
@@ -83,7 +83,7 @@ const Contact = () => {
                         </div>
                         :
                         value?.map((user: any) => {
-                            return <div className=' basis-1/3 p-4 '>
+                            return <div className='basis-1/1 md:basis-1/3 sm:basis-1/2  p-4 '>
                                 <div className='border border-sky-500 p-5 h-full rounded-lg shadow-lg flex flex-col' >
 
                                     <h2 className='uppercase text-2xl'>{user?.uname}</h2>

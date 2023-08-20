@@ -2,38 +2,37 @@ const CasesTable = ({ data }: any) => {
     console.log(data)
     return (
         <div>
-            <table className="table-fixed w-full mt-3 mb-6">
-                <tbody>
-                    <tr>
-                        <td className="border border-[#666] py-1 px-3" colSpan={2}>
+            <div className="table-fixed w-full mt-3 mb-6">
+               
+                    <ul className="flex flex-wrap w-full">
+                        <li className="border border-[#666] py-1 px-3 w-1/5  max-md:w-1/2" >
                             Total cases: <p className="text-sky-500">{data?.cases}</p>
-                        </td>
-                        <td className="border border-[#666] py-1 px-3" colSpan={2}>
+                        </li>
+                        <li className="border border-[#666] py-1 px-3 w-1/5 max-md:w-1/2" >
                             Total Active cases: <p className="text-sky-500">{data?.active}</p>
-                        </td>
-                        <td className="border border-[#666] py-1 px-3" colSpan={2}>
+                        </li>
+                        <li className="border border-[#666] py-1 px-3 w-1/5 max-md:w-1/2" >
                             Deaths: <p className="text-sky-500">{data?.deaths}</p>
-                        </td>
-                        <td className="border border-[#666] py-1 px-3" colSpan={2}>
+                        </li>
+                        <li className="border border-[#666] py-1 px-3 w-1/5 max-md:w-1/2" >
                             Recovered: <p className="text-sky-500">{data?.recovered}</p>
-                        </td>
-                        <td className="border border-[#666] py-1 px-3" colSpan={2}>
+                        </li>
+                        <li className="border border-[#666] py-1 px-3 w-1/5 max-md:w-1/2" >
                             Affected countries: <p className="text-sky-500">{data?.affectedCountries}</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="border border-[#666] py-1 px-3 " colSpan={3}>
+                        </li>
+                    
+                        <li className="border border-[#666] py-1 px-3 w-1/3  max-md:w-1/2">
                             Today cases: <p className="text-sky-500">{data?.todayCases}</p>
-                        </td>
-                        <td className="border border-[#666] py-1 px-3"  colSpan={4}>
+                        </li>
+                        <li className="border border-[#666] py-1 px-3 w-1/3  max-md:w-1/2" >
                             Today deaths: <p className="text-sky-500">{data?.todayDeaths}</p>
-                        </td>
-                        <td className="border border-[#666] py-1 px-3" colSpan={3}>
+                        </li>
+                        <li className="border border-[#666] py-1 px-3 w-1/3  max-md:w-1/2">
                             Today Recovered: <p className="text-sky-500">{data?.todayRecovered}</p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                        </li>
+                    </ul>
+                
+            </div>
         </div>
     )
 }

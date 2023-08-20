@@ -43,11 +43,11 @@ const Dashboard = () => {
     mapError && console.log(mapError.toString())
 
     return (
-        <section className="bg-[#282c34] h-full min-h-[100vh] flex text-white container mx-auto ">
-            <div className="w-3/12">
+        <section className="bg-[#282c34] h-full min-h-[100vh] md:flex text-white ">
+            <div className="md:w-3/12 ">
                 <Sidebar />
             </div>
-            <div className="w-9/12 px-10 py-10">
+            <div className="md:w-9/12 px-10 py-10">
                 {allCasesLoading ?
                     <div className="text-sky-500">Loading...</div>
                     : allCasesError ?
