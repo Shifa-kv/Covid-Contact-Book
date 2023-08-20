@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Covid-Contact-Book/static/css/main.8f1d8a72.css",
-    "main.js": "/Covid-Contact-Book/static/js/main.bfe51e82.js",
+    "main.js": "/Covid-Contact-Book/static/js/main.f8ef0091.js",
     "static/js/787.c45cc61a.chunk.js": "/Covid-Contact-Book/static/js/787.c45cc61a.chunk.js",
     "static/media/location.svg": "/Covid-Contact-Book/static/media/location.e124ecffa7853ff5de9438271eec1ab4.svg",
     "index.html": "/Covid-Contact-Book/index.html",
     "main.8f1d8a72.css.map": "/Covid-Contact-Book/static/css/main.8f1d8a72.css.map",
-    "main.bfe51e82.js.map": "/Covid-Contact-Book/static/js/main.bfe51e82.js.map",
+    "main.f8ef0091.js.map": "/Covid-Contact-Book/static/js/main.f8ef0091.js.map",
     "787.c45cc61a.chunk.js.map": "/Covid-Contact-Book/static/js/787.c45cc61a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8f1d8a72.css",
-    "static/js/main.bfe51e82.js"
+    "static/js/main.f8ef0091.js"
   ]
 }
