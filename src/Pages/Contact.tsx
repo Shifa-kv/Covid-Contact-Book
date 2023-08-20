@@ -15,7 +15,7 @@ const Contact = () => {
     const [AddPopup, showAddPopup] = useState(false);
     const [ViewPopup, showViewPopup] = useState(false);
     const [SelectedUser, setSelectedUser] = useState<user>();
-    const value = useSelector((state: any) => state.user);
+    const value = useSelector((state: any) => state.contact);
     const dispatch = useDispatch();
 
     // Add contact form submit

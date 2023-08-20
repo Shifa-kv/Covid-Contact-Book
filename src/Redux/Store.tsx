@@ -3,7 +3,7 @@ import UserReducer from "./UserReducer";
 
 const Store = configureStore({
     reducer: {
-        user : UserReducer
+        contact : UserReducer
     }
 });
 export default Store
