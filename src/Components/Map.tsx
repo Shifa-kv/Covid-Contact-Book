@@ -4,7 +4,7 @@ import image from '../Assets/images/location.svg'
 import { icon } from 'leaflet';
 
 const Map = ({ data }: any) => {
-  
+
   return (
     <MapContainer center={[30, 70]} zoom={3} scrollWheelZoom={false} style={{ height: '400px' }}>
       <TileLayer
@@ -27,7 +27,6 @@ const Map = ({ data }: any) => {
                 <li>Recovered cases: <span className='text-red-700 font-semibold'>{doc.recovered}</span></li>
                 <li>Deaths: <span className='text-red-700 font-semibold'>{doc.deaths}</span></li>
               </ul>
-
             </Popup>
           </Marker>
         })

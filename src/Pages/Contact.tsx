@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { deleting, adding, editing } from '../Redux/UserReducer';
-import { Link } from 'react-router-dom';
 import Sidebar from '../Components/Sidebar';
 
 
@@ -20,10 +19,11 @@ const Contact = () => {
     const dispatch = useDispatch();
 
     // Add contact form submit
-    const addUser = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleAdd = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         let target = e.currentTarget;
-        const formValues = {
+        const formValues: user = {
+            id: 0,
             uname: target.uname.value,
             phone: target.phone.value,
             status: target.status.value == 'active' ? true : false
@@ -32,7 +32,7 @@ const Contact = () => {
         showAddPopup(false)
     }
 
-    // delete contact
+    // Delete contact
     const deleteUser = (key: number) => {
         dispatch(deleting(key))
     }
@@ -68,7 +68,7 @@ const Contact = () => {
             </div>
             <div className='md:w-9/12 px-10 py-10'>
                 <div className=' sm:flex flex-wrap	flex-row'>
-                    <div className='w-full p-4 text-center'>
+                    <div className='w-full md:p-4 max-md:py-4 text-center'>
                         <div className='border border-sky-500 h-full p-5 rounded-lg shadow-lg '>
                             <button className='font-thin border border-dashed rounded-full w-[80px] h-[80px]' onClick={() => { showAddPopup(true) }}>
                                 <span className='leading-8  text-6xl'>+</span>
@@ -78,23 +78,23 @@ const Contact = () => {
                     </div>
                     {value &&
                         value.length == 0 ?
-                        <div className='basis-1/1 w-full bg-sky-500/10 rounded-md py-5 px-5 mx-4 border border-white/30'>
-                            <h2 className=' text-base'>No contact found, please add contact from create contact button</h2>
+                        <div className='basis-1/1 w-full bg-sky-500/10 rounded-md py-5 px-5 md:mx-4 border border-white/30'>
+                            <h2 className=' text-base'>No contact found, please add contact from create contact button above</h2>
                         </div>
                         :
                         value?.map((user: any) => {
-                            return <div className='basis-1/1 md:basis-1/3 sm:basis-1/2  p-4 '>
+                            return <div className='basis-1/1 md:basis-1/3 sm:basis-1/2 md:p-4 max-md:py-4'>
                                 <div className='border border-sky-500 p-5 h-full rounded-lg shadow-lg flex flex-col' >
 
                                     <h2 className='uppercase text-2xl'>{user?.uname}</h2>
 
                                     <div className='flex flex-auto items-end gap-1 mt-4'>
-                                        <button onClick={() => { manageUser(user.id,'view') }} >
+                                        <button onClick={() => { manageUser(user.id, 'view') }} >
                                             <svg className="w-8 h-6 dark:text-white" fill="#fff" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M12.406 13.844c1.188 0 2.156 0.969 2.156 2.156s-0.969 2.125-2.156 2.125-2.125-0.938-2.125-2.125 0.938-2.156 2.125-2.156zM12.406 8.531c7.063 0 12.156 6.625 12.156 6.625 0.344 0.438 0.344 1.219 0 1.656 0 0-5.094 6.625-12.156 6.625s-12.156-6.625-12.156-6.625c-0.344-0.438-0.344-1.219 0-1.656 0 0 5.094-6.625 12.156-6.625zM12.406 21.344c2.938 0 5.344-2.406 5.344-5.344s-2.406-5.344-5.344-5.344-5.344 2.406-5.344 5.344 2.406 5.344 5.344 5.344z" />
                                             </svg>
                                         </button>
-                                        <button onClick={() => { manageUser(user.id,'edit') }} className='w-full flex justify-end'>
+                                        <button onClick={() => { manageUser(user.id, 'edit') }} className='w-full flex justify-end'>
                                             <svg className="w-6 h-6 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"></path>
                                             </svg>
@@ -113,11 +113,16 @@ const Contact = () => {
                     {/* Popup for adding contact */}
                     {AddPopup &&
                         <div className='fixed inset-0 flex items-center justify-center z-50 bg-black/70	'>
-                            <form onSubmit={addUser} className='w-6/12 text-left bg-white text-black relative p-10 rounded-lg'>
+                            <form onSubmit={handleAdd} className='w-6/12 max-sm:w-9/12 max-sm:px-5 text-left bg-white text-black relative p-10 rounded-lg'>
                                 <h2 className="text-3xl font-bold  mb-8 text-center">Add contact</h2>
-                                <button onClick={() => showAddPopup(false)} className='closePopup rounded-full absolute top-3 right-5 bg-black text-slate-100 px-2 text-sm'>X</button>
-                                <input type='text' placeholder='name' name='uname' required className='border border-gray-600 px-4 py-2 w-full rounded-lg mb-3'></input><br />
-                                <input type='text' placeholder='phone' name='phone' required className='border border-gray-600 px-4 py-2 w-full rounded-lg mb-3'></input><br />
+                                <button
+                                    onClick={() => showAddPopup(false)}
+                                    className='closePopup rounded-full absolute top-3 right-5 bg-black text-slate-100 px-2 text-sm'
+                                >
+                                    X
+                                </button>
+                                <input type='text' placeholder='Name' name='uname' required className='border border-gray-600 px-4 py-2 w-full rounded-lg mb-3'></input><br />
+                                <input type='text' placeholder='Phone' name='phone' required className='border border-gray-600 px-4 py-2 w-full rounded-lg mb-3'></input><br />
                                 <label>Status : </label><br />
                                 <input type='radio' name='status' value='active' required className='mx-3' />Active
                                 <input type='radio' name='status' value='inactive' required className='mx-3' />Inactive<br />
@@ -129,14 +134,22 @@ const Contact = () => {
                     {/* Popup for editing contact */}
                     {EditPopup &&
                         <div className='fixed inset-0 flex items-center justify-center z-50 bg-black/70	'>
-                            <form onSubmit={(e) => { handleEdit(e, SelectedUser?.id) }} className='w-6/12 text-left bg-white text-black relative p-10 rounded-lg'>
+                            <form
+                                onSubmit={(e) => { handleEdit(e, SelectedUser?.id) }}
+                                className='w-6/12 max-sm:w-9/12 max-sm:px-5 text-left bg-white text-black relative p-10 rounded-lg'
+                            >
                                 <h2 className="text-3xl font-bold  mb-8 text-center">Edit contact</h2>
-                                <button onClick={() => showEditPopup(false)} className='closePopup rounded-full absolute top-3 right-5 bg-black text-slate-100 px-2 text-sm'>X</button>
-                                <input type='text' placeholder='name' name='uname' defaultValue={SelectedUser?.uname} className='border border-gray-600 px-4 py-2 w-full rounded-lg mb-3'></input><br />
-                                <input type='text' placeholder='phone' name='phone' defaultValue={SelectedUser?.phone} className='border border-gray-600 px-4 py-2 w-full rounded-lg mb-3'></input><br />
+                                <button
+                                    onClick={() => showEditPopup(false)}
+                                    className='closePopup rounded-full absolute top-3 right-5 bg-black text-slate-100 px-2 text-sm'
+                                >
+                                    X
+                                </button>
+                                <input type='text' placeholder='Name' name='uname' defaultValue={SelectedUser?.uname} className='border border-gray-600 px-4 py-2 w-full rounded-lg mb-3'></input><br />
+                                <input type='text' placeholder='Phone' name='phone' defaultValue={SelectedUser?.phone} className='border border-gray-600 px-4 py-2 w-full rounded-lg mb-3'></input><br />
                                 <label>Status : </label><br />
-                                <input type='radio' name='status' value='active' defaultChecked={SelectedUser?.status == true && true} className='mx-3' />Active
-                                <input type='radio' name='status' value='inactive' defaultChecked={SelectedUser?.status == false && true} className='mx-3' />Inactive<br />
+                                <input type='radio' name='status' value='active' defaultChecked={SelectedUser?.status} className='mx-3' />Active
+                                <input type='radio' name='status' value='inactive' defaultChecked={!SelectedUser?.status} className='mx-3' />Inactive<br />
                                 <button type='submit' className='bg-sky-500 text-slate-50 font-bold p-2 w-full rounded-lg mt-8'>Submit</button>
                             </form>
                         </div>

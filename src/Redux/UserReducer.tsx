@@ -5,7 +5,7 @@ type Contact = {
     uname: string;
     phone: number;
     status: boolean;
-} | null
+}
 const initialstate: Contact[] = []
 const generateUID = (data: Contact[]): number => {
     if (data.length >= 1) {
@@ -15,7 +15,6 @@ const generateUID = (data: Contact[]): number => {
         return 100;
     }
 }
-
 const UserSlice = createSlice({
     name: 'user',
     initialState: initialstate,
